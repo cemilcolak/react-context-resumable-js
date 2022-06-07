@@ -19,7 +19,7 @@ function UploadForm(props) {
                     fileAccept={["*/*"]}
                     fileAddedMessage="Started!"
                     completedMessage="Complete!"
-                    service="http://local.engineapi.merzigo.net/api/videos/6/upload"
+                    service={process.env.REACT_APP_ENGINE_API}
                     textLabel="Uploaded files"
                     previousText="Drop to upload your media:"
                     //disableDragAndDrop={false}}
