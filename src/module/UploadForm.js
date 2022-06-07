@@ -2,19 +2,12 @@ import React, {useContext, useState} from "react";
 import {Button, Container} from "reactstrap";
 import "../App.css";
 import ReactResumableJs from "react-resumable-js";
-import { UploadContext } from "../context/UploadContext";
+import { UploadsContext } from "../context/UploadContext";
 
 function UploadForm(props) {
 
-    const [uploadFile, setUploadFile] = useContext(UploadContext);
+    const [uploadFile, setUploadFile] = useContext(UploadsContext);
 
-    const [uploadFiles, setUploadFiles] = useState([]);
-    const [uploadedFiles, setUploadedFiles] = useState([]);
-
-    const onUploadStart = () => {
-        console.log("uploadFile: ",uploadFile);
-        uploadFile.upload();
-    }
 
     return (
         <React.Fragment>
@@ -62,8 +55,6 @@ function UploadForm(props) {
                         //this.inputDisable = true;
                     }}
                     />
-
-                    <Button onClick={onUploadStart}>Start</Button>
             </div>
         </React.Fragment>
     );

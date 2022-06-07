@@ -1,21 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
-export const UploadContext = createContext({});
+export const UploadsContext = createContext({});
 
-export const UploadFilesContext = createContext([]);
+export const UploadsContextProvider = (props) => {
+	const [uploads, setUploads] = useState([]);
 
-export const UploadContextProvider = (props) => {
-	const [uploadFile, setUploadFile] = useState({});
-
-	return <UploadContext.Provider value={[uploadFile, setUploadFile]}>{props.children}</UploadContext.Provider>;
+	return <UploadsContext.Provider value={[uploads, setUploads]}>{props.children}</UploadsContext.Provider>;
 }
-
-export const UploadFilesContextProvider = (props) => {
-    
-	return <UploadFilesContext.Provider value={[]}>{props.children}</UploadFilesContext.Provider>;
-}
-
-/*
-export const useUpload = () => useContext(UploadContext);
-export const useUploadFiles = () => useContext(UploadFilesContext);
-*/
