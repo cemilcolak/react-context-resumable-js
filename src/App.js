@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./App.css";
-import { UploadFilesContextProvider } from "./context/UploadContext"
+import { UploadContextProvider } from "./context/UploadContext"
 
 function App(props) {
   const [uploadFiles, setUploadFiles] = useState([]);
@@ -29,11 +29,11 @@ function App(props) {
             form.
           </p>
         </fieldset>
-        <UploadFilesContextProvider>
+        <UploadContextProvider>
           <div className="pages">
             {props.children}
           </div>
-        </UploadFilesContextProvider>
+        </UploadContextProvider>
       </div>
     </React.Fragment>
   );
