@@ -7,7 +7,13 @@ import { UploadsContext } from "../context/UploadContext";
 function UploadForm(props) {
 
     const [uploadFile, setUploadFile] = useContext(UploadsContext);
+    const [formData, setFormData] = useState({});
 
+    const onSubmitForm = () => {
+        //change of target api url
+        uploadFile.opts.target = "http://server.url/upload"
+        uploadFile.upload();
+    }
 
     return (
         <React.Fragment>
@@ -55,6 +61,7 @@ function UploadForm(props) {
                         //this.inputDisable = true;
                     }}
                     />
+                    <Button onClick={onSubmitForm}>Custom Upload</Button>
             </div>
         </React.Fragment>
     );
