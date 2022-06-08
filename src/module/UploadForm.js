@@ -32,6 +32,7 @@ function UploadForm(props) {
                     onFileSuccess={(file, message) => {
                         console.log("onFileSuccess - file: ", file);
                         console.log("onFileSuccess - message: ", message);
+                        window.onbeforeunload = false;
                     }}
                     onFileAdded={async(file, resumable) => {
                         console.log("onFileAdded - file: ", file);
@@ -50,9 +51,11 @@ function UploadForm(props) {
                         console.log("onStartUpload - file: ", file);
                         console.log("onStartUpload - resumable: ", resumable);
                         //resumable.upload();
+                        window.onbeforeunload = () => true;
                     }}
                     onCancelUpload={() => {
                         //this.inputDisable = true;
+                        window.onbeforeunload = null;
                     }}
                     onPauseUpload={() => {
                         //this.inputDisable = true;
@@ -60,8 +63,8 @@ function UploadForm(props) {
                     onResumeUpload={() => {
                         //this.inputDisable = true;
                     }}
-                    />
-                    <Button onClick={onSubmitForm}>Custom Upload</Button>
+                />
+                <Button onClick={onSubmitForm}>Custom Upload</Button>
             </div>
         </React.Fragment>
     );
